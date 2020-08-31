@@ -1,9 +1,15 @@
 # php-radarrsync
 RadarrSync written in PHP and leverages Radarr Lists
 
-So uh I don't like python, but I found the traditional python-based RadarrSync a little hacky.
+## Why?
+
+So uh I don't like python, but I found the traditional python-based RadarrSync a little hacky.  This version fixes a bunch of issues I have with the python version.  Don't get me wrong, it's a great idea and it inspired this code... but I think this is a better model to support this type of syncing.
+
+     NO CONFIGURATION FILES     NO CRON JOBS     NO EXTRA LOG FILES
 
 After playing around with the Radarr API and looking at the List options, I found a better option.  Ultimately, this script simply acts as a "proxy" between your two Radarr instances, and allows you to perform some _basic_ filtering of the items from your source Radarr instance.
+
+## Usage
 
 To use this code, you're going to need something like Nginx or Apache that can run PHP code.  For me, I use Nginx to proxy several services, so adding a script into my root directory wasn't difficult, but YMMV.
 
@@ -19,7 +25,9 @@ On your >destination< Radarr list, you will create a new list (Settings > Lists)
   * Radarr API URL:  [see below]
   * Path to List: <blank>
   
-Radarr API URL would be the URL of your radarrsync.php installation with some added HTTP GET parameters.
+## Radarr API URL
+
+  Here you would specify the URL of your radarrsync.php installation with some added HTTP GET parameters.
 
   For example, your radarrsync.php is accessible at http://plex/radarrsync.php
   
@@ -48,10 +56,10 @@ Radarr API URL would be the URL of your radarrsync.php installation with some ad
   RadarrSync does, but you can optionally create filters on other items, too.
   
   As an example, we're going to use the following values:
-    * source = radarr.local:7878
-    * apikey = abc1234
-    * ssl = 0
-    * profileId = 5
+   * source = radarr.local:7878
+   * apikey = abc1234
+   * ssl = 0
+   * profileId = 5
   
   Using these values, your Radarr API url would look something like:  http://plex/radarrsync.php?source=radarr.local:7878&apikey=abc1234&ssl=0&profileId=5
   
@@ -59,7 +67,7 @@ Save your entry and go to 'Add Movies' and choose 'Add Movies from List'.  In th
 
 The movie list should appear.  A nice feature of Radarr is that it will only identify movies that have not been sync'd, so your list may be empty.  Try adding a new movie to your source Radarr instance, putting it in the correct profile, and try it again.
 
-Automating it!
+## Automating it!
 
 This is why I like this method better:
 
