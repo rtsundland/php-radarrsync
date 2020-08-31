@@ -24,18 +24,19 @@ Radarr API URL would be the URL of your radarrsync.php installation with some ad
   For example, your radarrsync.php is accessible at http://plex/radarrsync.php
   
   You _must_ pass the following GET parameters:
-    * source=address:port[/urlbase]
+  
+   * source=address:port[/urlbase]
     
       source defines the address, port, and URL base of the source Radarr instance
           - address is the hostname or IP of the remote instance
           - port and urlbase (if applicable) is the Port Number and URL Base
             of the remote instance (Settings > General)
         
-    * apikey=<string>
+   * apikey=<string>
     
       API key needed to access the source Radarr Instance (Settings > General)
     
-    * ssl=[0|1]
+   * ssl=[0|1]
       
       OPTIONAL: If the source instance requires the use of SSL, default is 0
     
