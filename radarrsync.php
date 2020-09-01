@@ -24,6 +24,8 @@
 #   Using profileId would be equivalent to support what the "python" version of 
 #   RadarrSync does, but you can optionally create filters on other items, too.
 
+header( "Content-type:application/json\n" );
+
 $instance = $_GET['instance'];
 $apikey = $_GET['apikey'];
 $usessl = ( array_key_exists( 'ssl', $_GET ) ? $_GET['ssl'] : 0 );
@@ -42,6 +44,11 @@ if( !isset( $instance ) || !isset( $apikey ) ) {
 $instance = 'http' . ( $usessl ? 's' : '' ) . '://' . $instance . '/api/movie?apikey=' . $apikey;
 
 $results = json_decode( file_get_contents( $instance ) );
+if( !isset( $results ) || count( $results ) == 0 ) {
+	http_response_code( 502 );
+	exit;
+}
+
 $output = array();
 
 foreach( $results as &$movie ) {
@@ -59,7 +66,6 @@ foreach( $results as &$movie ) {
 	) );
 }
 
-header( "Content-type:application/json\n" );
 print( json_encode( $output ) );
 
 ?>
