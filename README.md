@@ -21,7 +21,7 @@ On your >destination< Radarr list, you will create a new list (Settings > Lists)
   * Minimum Availability: Announced   (let your source instance manage/refine availability)
   * Quality Profile: The profile you want to use
   * Folder: Destination Folder for your movies
-  * Tags: <blank>
+  * Tags: &lt;blank&gt;
   * Radarr API URL:  [see below]
   * Path to List: <blank>
   
