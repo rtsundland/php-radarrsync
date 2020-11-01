@@ -23,7 +23,7 @@ On your >destination< Radarr list, you will create a new list (Settings > Lists)
   * Folder: Destination Folder for your movies
   * Tags: &lt;blank&gt;
   * Radarr API URL:  [see below]
-  * Path to List: <blank>
+  * Path to List: &lt;blank&gt;
   
 ## Radarr API URL
 
